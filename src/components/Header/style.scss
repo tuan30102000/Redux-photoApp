@@ -1,0 +1,14 @@
+header{
+    height: 70px;
+}
+.header-box{
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    a{
+        color: black;
+        font-size: 16px;
+        
+    }
+}
