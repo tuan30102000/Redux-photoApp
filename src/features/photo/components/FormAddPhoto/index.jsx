@@ -4,26 +4,31 @@ import './style.scss'
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
 FormAddPhoto.propTypes = {
-    onSubmit:PropTypes.func,
+    onSubmitFc: PropTypes.func.isRequired,
+    valueTitle: PropTypes.string,
+    valueCategory: PropTypes.number,
+    srcImg: PropTypes.string,
 };
 FormAddPhoto.defaultProps = {
+    srcImg: 'https://picsum.photos/id/0001/300/300',
+    valueTitle: '',
+    valueCategory: 1
 }
+
 const getRandomImageUrl = () => {
     const randomId = Math.trunc(Math.random() * 2000);
     return `https://picsum.photos/id/${randomId}/300/300`;
 }
 
-
 function FormAddPhoto(props) {
-    const [imgLink, setimgLink] = useState('https://picsum.photos/id/0001/300/300')
+    const { valueTitle, onSubmitFc, srcImg, valueCategory, onSubmit } = props
+    const [imgLink, setimgLink] = useState(srcImg)
     const form = useForm({
         defaultValues: {
-            title: '',
-            category: 2
+            title: valueTitle,
+            category: valueCategory
         }
     })
-    
-    const {onSubmit,Cpn}=props
     const handleRandomBtnClick = () => {
         setimgLink(getRandomImageUrl)
     }
@@ -33,7 +38,7 @@ function FormAddPhoto(props) {
     const [errorState, seterrorState] = useState(false)
     const handleShowDataSubmit = function (data) {
         data.img = imgLink
-       if(onSubmit)  onSubmit(data)
+        if (onSubmitFc) onSubmitFc(data)
     }
     return (
         <div className="layout">
@@ -102,7 +107,7 @@ function FormAddPhoto(props) {
                 </form>
             </div>
         </div>
-    
+
     );
 }
 

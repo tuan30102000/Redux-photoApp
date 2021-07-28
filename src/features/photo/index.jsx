@@ -9,8 +9,9 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import PhotoPage from './pages/Photopage';
+import PhotoPage from './pages/PhotoPage';
 import AddPage from './pages/AddPage';
+import EditPage from './pages/EditPage';
 PhotoFeatures.propTypes = {
 
 };
@@ -24,6 +25,7 @@ function PhotoFeatures(props) {
             <Switch>
                 <Route path={Math.path} exact component={PhotoPage}/>
                 <Route path={`${Math.path}/add`}  component={AddPage}/>
+                <Route path={`${Math.path}/:photoId`} component={EditPage}/>
             </Switch>
         </div>
     );

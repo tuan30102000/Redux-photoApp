@@ -10,9 +10,12 @@ AddPage.propTypes = {
 };
 
 function AddPage(props) {
+    
     const Math = useRouteMatch()
     const dispatch = useDispatch()
+    
     const history=useHistory()
+   
     const handleSubmit = function (data) {
         const newAction = addPhoto(data)
        
@@ -23,7 +26,7 @@ function AddPage(props) {
     return (
         <>
             <Thumbnail imgLink={img} content={'Pick your Photo'} />
-            <FormAddPhoto Cpn={Thumbnail} onSubmit={handleSubmit} />
+            <FormAddPhoto onSubmitFc={handleSubmit} />
         </>
     );
 }
