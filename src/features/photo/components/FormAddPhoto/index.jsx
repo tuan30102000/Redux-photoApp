@@ -4,6 +4,7 @@ import './style.scss'
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
 FormAddPhoto.propTypes = {
+    onSubmit:PropTypes.func,
 };
 FormAddPhoto.defaultProps = {
 }
@@ -22,6 +23,7 @@ function FormAddPhoto(props) {
         }
     })
     
+    const {onSubmit,Cpn}=props
     const handleRandomBtnClick = () => {
         setimgLink(getRandomImageUrl)
     }
@@ -31,7 +33,7 @@ function FormAddPhoto(props) {
     const [errorState, seterrorState] = useState(false)
     const handleShowDataSubmit = function (data) {
         data.img = imgLink
-        console.log(data)
+       if(onSubmit)  onSubmit(data)
     }
     return (
         <div className="layout">
@@ -100,6 +102,7 @@ function FormAddPhoto(props) {
                 </form>
             </div>
         </div>
+    
     );
 }
 

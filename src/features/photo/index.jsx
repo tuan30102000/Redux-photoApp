@@ -9,7 +9,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import PhotoPage from './pages/PhotoPage';
+import PhotoPage from './pages/Photopage';
 import AddPage from './pages/AddPage';
 PhotoFeatures.propTypes = {
 

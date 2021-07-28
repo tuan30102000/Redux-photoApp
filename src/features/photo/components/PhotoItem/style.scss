@@ -1,0 +1,15 @@
+.photo-item{
+    height: 300px;
+
+}
+
+.photo-item__img-box{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
