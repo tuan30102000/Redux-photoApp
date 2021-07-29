@@ -1,31 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Thumbnail from './components/Thumbnail';
-import imgThumbnail from '../../assets/image/thumbnail1.jpg'
+import { react, useEffect } from 'react';
 import {
-    useLocation,
-    useRouteMatch,
-    useHistory,
-    Switch,
-    Route
+    Route, Switch, useRouteMatch
 } from "react-router-dom";
-import PhotoPage from './pages/PhotoPage';
 import AddPage from './pages/AddPage';
 import EditPage from './pages/EditPage';
+import PhotoPage from './pages/Photopage';
+import { useDispatch, useSelector } from 'react-redux'
+import { setInit } from './photoSlice'
 PhotoFeatures.propTypes = {
 
-};
+    };
 
 function PhotoFeatures(props) {
-    const location=useLocation()
-    const Math=useRouteMatch()
-   
+    const photos = useSelector(state => state.photos)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const photosColection = JSON.parse(localStorage.getItem('photoAlbum'))
+        const newAction=setInit(photosColection)
+        dispatch(newAction)
+    }, [])
+    useEffect(() => {
+        localStorage.setItem('photoAlbum', JSON.stringify(photos))
+        console.log(1)
+        return () => {
+        }
+    }, [photos])
+    const Math = useRouteMatch()
     return (
         <div className='container'>
             <Switch>
-                <Route path={Math.path} exact component={PhotoPage}/>
-                <Route path={`${Math.path}/add`}  component={AddPage}/>
-                <Route path={`${Math.path}/:photoId`} component={EditPage}/>
+                <Route path={Math.path} exact component={PhotoPage} />
+                <Route path={`${Math.path}/add`} component={AddPage} />
+                <Route path={`${Math.path}/:photoId`} component={EditPage} />
             </Switch>
         </div>
     );

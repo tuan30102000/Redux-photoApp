@@ -4,14 +4,14 @@ import './style.scss'
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
 FormAddPhoto.propTypes = {
-    onSubmitFc: PropTypes.func.isRequired,
+    onSubmitFc: PropTypes.func,
     valueTitle: PropTypes.string,
-    valueCategory: PropTypes.number,
     srcImg: PropTypes.string,
 };
 FormAddPhoto.defaultProps = {
     srcImg: 'https://picsum.photos/id/0001/300/300',
     valueTitle: '',
+
     valueCategory: 1
 }
 

@@ -9,11 +9,17 @@ const photoSlice = createSlice({
     reducers: {
         addPhoto(state, action) { state.push(action.payload) },
         removePhoto(state, action) {
-
             let index = action.payload
-            // console.log(index, [...state.slice(0, index), ...state.slice(index + 1)])
-
             state = [...state.slice(0, index), ...state.slice(index + 1)]
+            return state
+        },
+        editPhoto(state, action) {
+            let { index, data } = action.payload
+            state = [...state.slice(0, index), data, ...state.slice(index + 1)]
+            return state
+        },
+        setInit(state, action) {
+            state=action.payload
             return state
         }
     }
@@ -21,5 +27,5 @@ const photoSlice = createSlice({
 
 
 const { reducer, actions } = photoSlice
-export const { addPhoto, removePhoto } = actions
+export const { addPhoto, removePhoto, editPhoto,setInit } = actions
 export default reducer

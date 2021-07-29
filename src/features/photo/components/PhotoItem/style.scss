@@ -1,15 +1,48 @@
-.photo-item{
+.photo-item {
     height: 300px;
-
-}
-
-.photo-item__img-box{
-    width: 100%;
-    height: 100%;
+    position: relative;
     border-radius: 30px;
     overflow: hidden;
-    img{
+    &:hover .item__btn-box {
+        opacity: 1;
+    }
+}
+
+.photo-item__img-box {
+    width: 100%;
+    height: 100%;
+
+    img {
         width: 100%;
         height: 100%;
+    }
+}
+.item__btn-box {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4D000000;
+    opacity: 0;
+    transition: 0.5s;
+    .button {
+        width: 85px;
+        height: 30px;
+        border-radius: 8px;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+        &.remove {
+            background-color: #1b1c2b;
+            color: #fff;
+        }
+        &.edit {
+            background-color: #fff;
+            color: #1b1c2b;
+            margin-left: 15px;
+        }
     }
 }
