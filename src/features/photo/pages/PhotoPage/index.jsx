@@ -11,7 +11,9 @@ function PhotoPage(props) {
     return (
         <>
             <Thumbnail imgLink={img} content='Your Photo awesome' />
-            <LayoutCp classNameCp='photo-list' Cpn={[PhotoList]}/>
+            <LayoutCp classNameCp='photo-list'>
+                <PhotoList test='1' />
+            </LayoutCp>
         </>
     );
 }

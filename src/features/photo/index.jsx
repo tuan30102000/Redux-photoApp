@@ -9,14 +9,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setInit } from './photoSlice'
 PhotoFeatures.propTypes = {
 
-    };
+};
 
 function PhotoFeatures(props) {
     const photos = useSelector(state => state.photos)
     const dispatch = useDispatch()
     useEffect(() => {
         const photosColection = JSON.parse(localStorage.getItem('photoAlbum'))
-        const newAction=setInit(photosColection)
+        const newAction = setInit(photosColection)
         dispatch(newAction)
     }, [])
     useEffect(() => {

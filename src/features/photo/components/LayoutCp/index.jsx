@@ -8,18 +8,14 @@ LayoutCp.propTypes = {
 };
 
 function LayoutCp(props) {
-    const { classNameCp, Cpn, listProp } = props
-    
+    const { classNameCp, children } = props
+
     return (
         <div className={`layout ${classNameCp}`}>
             <div className={`layout-box ${classNameCp}-box`}>
 
-{
-    Cpn.map(function(Item,index){
-        return <Item key={index}/>
-    })
-}
-               
+                {children}
+
             </div>
         </div>
     );

@@ -9,6 +9,7 @@ PhotoList.propTypes = {
 };
 
 function PhotoList(props) {
+    console.log(props.test)
     const photos = useSelector(state => state.photos)
     const Math = useRouteMatch()
     const dispatch = useDispatch()
